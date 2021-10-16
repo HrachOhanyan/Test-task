@@ -1,0 +1,28 @@
+@import "./src/App.scss";
+
+.sidebar {
+  width: $sidebarWidth;
+  background-color: #009696;
+  position: fixed;
+  height: 100%;
+  h3 {
+    color: #ccd1d5;
+    margin-left: 24px;
+    font-size: 24px;
+  }
+  ul {
+    padding-left: 0;
+    li {
+      padding: 5px 0 5px 24px;
+      list-style: none;
+      a {
+        color: #ccd1d5;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.selectedItem {
+  color: #ffe615!important;
+}

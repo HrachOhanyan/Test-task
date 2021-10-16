@@ -1,0 +1,30 @@
+.title {
+  font-size: 36px;
+  color: #009696;
+  margin: 0 0 0 100px;
+  padding-top: 20px;
+}
+
+.container {
+  width: 100%;
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  align-items: center;
+}
+
+.loadMoreBox {
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 50px 0;
+    border: none;
+    color: #ccd1d5;
+    background-color: #009696;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 50%/100%;
+    cursor: pointer;
+  }
+}

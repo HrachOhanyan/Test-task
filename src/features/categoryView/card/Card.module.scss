@@ -1,0 +1,10 @@
+$cardSize: 200px;
+.card {
+  width: $cardSize;
+  height: $cardSize;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 50px;
+}

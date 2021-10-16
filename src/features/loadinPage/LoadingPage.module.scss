@@ -1,0 +1,18 @@
+.loadingPage {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    font-size: 64px;
+    color: #009696;
+  }
+  p {
+    margin: 0;
+    font-size: 24px;
+    color: #858695;
+  }
+}
