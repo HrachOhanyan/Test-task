@@ -11,3 +11,10 @@ export interface Image {
     url: string;
     width: number;
 }
+
+export enum ProcessState {
+    None,
+    Loading,
+    Sucsess,
+    Error
+}

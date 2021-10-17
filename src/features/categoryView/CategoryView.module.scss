@@ -3,6 +3,7 @@
   color: #009696;
   margin: 0 0 0 100px;
   padding-top: 20px;
+  text-transform: uppercase;
 }
 
 .container {
@@ -12,6 +13,15 @@
   justify-content: center;
   flex-flow: wrap;
   align-items: center;
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 24px;
+  color: #009696;
+  font-weight: 600;
 }
 
 .loadMoreBox {
@@ -26,5 +36,18 @@
     font-size: 20px;
     border-radius: 50%/100%;
     cursor: pointer;
+    box-shadow: 0 0 8px 0 #383838;
+    transition: all 0.3s ease-out;
+    &:hover {
+      box-shadow: 0 0 12px 0 #383838;
+      background-color: #006363;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .title {
+    margin: 0!important;
+    text-align: center!important;
   }
 }

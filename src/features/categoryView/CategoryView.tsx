@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, useLocation} from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 
 import {getCategory} from "./categoryViewAPI";
 import style from "./CategoryView.module.scss";
-import {Image} from "../../common/Types";
+import {Image, ProcessState} from "../../common/Types";
 import Card from "./card/Card";
 
 const CategoryView = () => {
     const params:any = useParams();
     const id: string = params && params.id;
     const [data, setData] = useState<Array<Image>>([]);
+
+    const [processState, setProcessState] = useState<ProcessState>(ProcessState.None);
 
     const loadCategory = async () => {
         const response = await getCategory(id);
@@ -22,7 +24,14 @@ const CategoryView = () => {
     };
 
     useEffect(() => {
-        loadCategory().then((response) => setData(response)).catch((error) => console.log(String(error)));
+        setProcessState(ProcessState.Loading);
+        loadCategory().then((response) => {
+            setProcessState(ProcessState.Sucsess);
+            setData(response);
+        }).catch((error) => {
+            setProcessState(ProcessState.Error);
+            console.log(String(error))
+        });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
@@ -35,14 +44,16 @@ const CategoryView = () => {
                 {name}
             </h2>
             <div className={style.container}>
-                {data.map((item: Image, index) => (
+                {processState === ProcessState.Loading ? <div className={style.loading}>Loading...</div> :
+                    data.map((item: Image, index) => (
                     <Card key={index} item={item}/>
                 ))}
             </div>
             <div className={style.loadMoreBox}>
-                <button onClick={() => onLoadMore()}>
+                {!(processState === ProcessState.Loading) && <button onClick={() => onLoadMore()}>
                     Load more
                 </button>
+                }
             </div>
         </div>
     );
