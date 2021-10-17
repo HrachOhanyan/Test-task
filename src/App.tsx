@@ -18,7 +18,7 @@ function App() {
       <Suspense fallback={<LoadingPage/>}>
           <Router basename="/">
               <Sidebar/>
-              <div style={{paddingLeft: "240px"}}>
+              <div className="sidebarSize">
                   <Switch>
                       <Route exact path="/">
                           <div className="homePage">
